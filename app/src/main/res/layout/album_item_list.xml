@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="140dp"
+    android:layout_height="140dp"
+    android:layout_marginBottom="8dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/albumImageView"
+        android:background="@drawable/ic_launcher_background"/>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Album Name"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        android:layout_marginTop="3dp"
+        android:id="@+id/albumNameTextView"
+        android:textColor="@color/black"
+        android:layout_below="@id/albumImageView"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/albumSubAttributes"
+        android:orientation="horizontal"
+        android:layout_below="@id/albumNameTextView"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Album "
+            android:textSize="7sp"
+            android:layout_weight="0.2"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/black"
+            android:id="@+id/albumSubNameTextView"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/albumNameTextView"
+            android:textSize="7sp"
+            android:id="@+id/artistNameTextView"
+            android:text="artist_name"
+            android:layout_weight="0.8"
+            android:textColor="@color/black"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"/>
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>
