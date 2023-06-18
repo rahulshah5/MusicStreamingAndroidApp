@@ -24,7 +24,7 @@ import com.dgc.musicstreamingapp.home.artists.*;
 import java.util.ArrayList;
 
 
-public class HomeActivity extends Fragment {
+public class HomeFragment extends Fragment {
 
 
     private RecyclerView albumRecyclerView, artistRecyclerView;

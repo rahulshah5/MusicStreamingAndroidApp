@@ -3,21 +3,21 @@
     <item
         android:icon="@drawable/home"
         android:title="Home"
-        android:id="@+id/dashboard"
+        android:id="@+id/homePage"
         />
     <item
         android:icon="@drawable/search"
         android:title="Search"
-        android:id="@+id/users"
+        android:id="@+id/searchPage"
         />
     <item
         android:icon="@drawable/library"
         android:title="Library"
-        android:id="@+id/library"
+        android:id="@+id/libraryPage"
         />
     <item
         android:icon="@drawable/user"
         android:title="Profile"
-        android:id="@+id/profile"
+        android:id="@+id/profilePage"
         />
 </menu>
