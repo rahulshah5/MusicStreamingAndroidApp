@@ -16,8 +16,8 @@
         android:id="@+id/libraryPage"
         />
     <item
-        android:icon="@drawable/user"
-        android:title="Profile"
+        android:icon="@drawable/play"
+        android:title="Play"
         android:id="@+id/profilePage"
         />
 </menu>
