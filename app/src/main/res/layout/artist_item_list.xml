@@ -3,13 +3,14 @@
     android:orientation="horizontal"
     android:layout_width="140dp"
     android:layout_height="140dp"
+    android:paddingRight="10dp"
     android:layout_marginBottom="8dp">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:scaleType="centerCrop"
-        android:id="@+id/albumImageView"
+        android:id="@+id/artistImageView"
         android:background="@drawable/ic_launcher_background"/>
 
 
@@ -24,7 +25,7 @@
         android:id="@+id/artistNameTextView"
         android:gravity="center"
         android:textColor="@color/black"
-        android:layout_below="@id/albumImageView"/>
+        android:layout_below="@id/artistImageView"/>
 
 
 </RelativeLayout>

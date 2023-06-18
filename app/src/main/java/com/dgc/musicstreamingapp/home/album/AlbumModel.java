@@ -5,12 +5,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class AlbumModel {
-    private String albumName,artistName,albumCoverURL;
+    private String albumName,albumCoverURL;
 
 
-    public AlbumModel(String albumName,String artistName, String albumCoverURL){
+    public AlbumModel(String albumName, String albumCoverURL){
         this.albumName=albumName;
-        this.artistName=artistName;
         this.albumCoverURL=albumCoverURL;
     }
     public String getAlbumName() {
@@ -21,13 +20,8 @@ public class AlbumModel {
         this.albumName = albumName;
     }
 
-    public String getArtistName() {
-        return artistName;
-    }
 
-    public void setArtistName(String artistName) {
-        this.artistName = artistName;
-    }
+
 
     public String getAlbumCoverURL() {
         return albumCoverURL;

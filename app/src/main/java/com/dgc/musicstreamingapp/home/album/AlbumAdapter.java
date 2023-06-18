@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,10 +36,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
 
         AlbumModel albumModel= albumModelsArrayList.get(position);
         holder.albumName.setText(albumModel.getAlbumName());
-        holder.albumArtist.setText(albumModel.getArtistName());
+        Picasso.get().load(albumModel.getAlbumCoverURL()).into(holder.albumCover);
 
-
-    }
+     }
 
     @Override
     public int getItemCount() {
@@ -47,12 +48,11 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
     public class AlbumViewHolder extends RecyclerView.ViewHolder{
 
         private ImageView albumCover;
-        private TextView albumName,albumArtist;
+        private TextView albumName;
         public AlbumViewHolder(@NonNull View itemView) {
             super(itemView);
-            albumArtist=itemView.findViewById(R.id.artistNameTextView);
             albumCover=itemView.findViewById(R.id.albumImageView);
-            albumName=itemView.findViewById(R.id.artistNameTextView);
+            albumName=itemView.findViewById(R.id.albumNameTextView);
         }
     }
 }
