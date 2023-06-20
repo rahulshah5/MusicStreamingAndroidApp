@@ -2,11 +2,11 @@ package com.dgc.musicstreamingapp;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Switch;
+
 
 import com.dgc.musicstreamingapp.search.*;
 
-import androidx.annotation.NonNull;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.dgc.musicstreamingapp.library.*;
@@ -21,19 +21,31 @@ public class MainActivity extends AppCompatActivity {
     private LibraryFragment libraryFragment;
     private BottomNavigationView bottomNavigationView;
 
-    final int SEARCH_PAGE_ID=R.id.searchPage;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        fragment initiated
         searchFragment=new SearchFragment();
         libraryFragment=new LibraryFragment();
 
+//      making home fragment default
         homeFragment = new HomeFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
 
+        bottomNavigationMenu();
+
+
+
+
+    }
+
+    private void bottomNavigationMenu(){
+
+        //  navigatoin menu functions
         bottomNavigationView=findViewById(R.id.bottomnav);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -54,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
     }
+
 }
