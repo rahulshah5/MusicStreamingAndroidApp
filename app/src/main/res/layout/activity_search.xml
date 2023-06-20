@@ -5,10 +5,20 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="search"
         android:textSize="30sp"
         android:layout_centerInParent="true"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:id="@+id/searchTextView"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:textAllCaps="false"
+        android:layout_below="@id/searchTextView"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>
