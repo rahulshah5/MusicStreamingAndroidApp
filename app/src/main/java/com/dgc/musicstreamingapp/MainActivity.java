@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 //      making home fragment default
         homeFragment = new HomeFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
-
+        System.out.println("rahul");
         bottomNavigationMenu();
 
 
