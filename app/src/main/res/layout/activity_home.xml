@@ -13,12 +13,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Explore"
+            android:gravity="center"
             android:id="@+id/homeLabel"
             android:fontFamily="@font/montserrat"
             android:paddingVertical="15dp"
             android:paddingHorizontal="10dp"
             android:textColor="@color/color_title"
-            android:textStyle="bold"
             android:textAllCaps="true"
             android:textSize="18sp"/>
 
@@ -33,10 +33,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 android:text="Albums"
-                android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_semibold"
                 android:id="@+id/albumlabel"
                 android:paddingHorizontal="10dp"
                 android:textColor="@color/color_subTitle"/>
@@ -63,9 +62,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
+                android:textSize="20sp"
+                android:fontFamily="@font/montserrat_semibold"
                 android:text="Artists"
                 android:id="@+id/artistLabel"
                 android:paddingHorizontal="10dp"
@@ -93,10 +91,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 android:text="Tracks"
-                android:fontFamily="@font/montserrat"
-                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_semibold"
+
                 android:id="@+id/trackLabel"
                 android:paddingHorizontal="10dp"
                 android:textColor="@color/color_subTitle"/>
