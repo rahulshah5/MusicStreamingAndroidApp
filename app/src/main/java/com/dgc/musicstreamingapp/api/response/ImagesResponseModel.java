@@ -2,7 +2,7 @@ package com.dgc.musicstreamingapp.api.response;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Images {
+public class ImagesResponseModel {
     public String getImageUrl() {
         return imageUrl;
     }

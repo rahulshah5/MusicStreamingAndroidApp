@@ -3,7 +3,7 @@ package com.dgc.musicstreamingapp.api.response;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
-public class Album {
+public class AlbumResponseModel {
     @SerializedName("name")
     private String albumName;
 
@@ -11,9 +11,9 @@ public class Album {
     private String albumId;
 
     @SerializedName("images")
-    private List<Images> imagesList;
+    private List<ImagesResponseModel> imagesList;
     @SerializedName("artists")
-    private List<Artist> artistsList;
+    private List<ArtistResponseModel> artistsList;
 
 
     public String getAlbumName() {
@@ -24,11 +24,11 @@ public class Album {
         return albumId;
     }
 
-    public List<Images> getImagesList() {
+    public List<ImagesResponseModel> getImagesList() {
         return imagesList;
     }
 
-    public List<Artist> getArtistsList() {
+    public List<ArtistResponseModel> getArtistsList() {
         return artistsList;
     }
 

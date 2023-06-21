@@ -35,11 +35,7 @@ public class MainActivity extends AppCompatActivity {
 //      making home fragment default
         homeFragment = new HomeFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
-        System.out.println("rahul");
         bottomNavigationMenu();
-
-
-
 
     }
 
@@ -51,12 +47,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
 
-
                 if(item.getItemId()==R.id.searchPage){
                     System.out.println(item.getItemId()+" "+R.id.searchPage);
                     getSupportFragmentManager().beginTransaction().replace(R.id.container,searchFragment).commit();
                     return true;
-                } else if (item.getItemId()==R.id.homePage) {
+                } else if (item.getItemId()==R.id.ExplorePage) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
                     return true;
                 } else if (item.getItemId()==R.id.libraryPage) {

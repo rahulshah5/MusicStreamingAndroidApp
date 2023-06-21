@@ -18,10 +18,6 @@ public class APIHelper {
     public static Retrofit getInstance(){
         if(retrofit ==null) {
 
-//            OkHttpClient client = new OkHttpClient.Builder()
-//                    .addInterceptor(new HeaderInterceptor())
-//                    .build();
-
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
             OkHttpClient client = new OkHttpClient.Builder()

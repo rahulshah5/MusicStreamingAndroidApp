@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Artist {
+public class ArtistResponseModel {
 
     @SerializedName("id")
     private String artistId;
@@ -14,14 +14,14 @@ public class Artist {
 
 
 
-//    @SerializedName("images")
-//    private List<Images> artistImagesList;
+    @SerializedName("images")
+    private List<ImagesResponseModel> artistImagesList;
 
 
 
-//    public List<Images> getArtistImagesList() {
-//        return artistImagesList;
-//    }
+    public List<ImagesResponseModel> getArtistImagesList() {
+        return artistImagesList;
+    }
 
     public String getArtistId() {
         return artistId;
