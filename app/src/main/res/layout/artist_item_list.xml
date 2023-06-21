@@ -23,7 +23,7 @@
         android:layout_marginTop="3dp"
         android:id="@+id/artistNameTextView"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/color_subTitle"
         android:layout_below="@id/artistImageView"/>
 
 

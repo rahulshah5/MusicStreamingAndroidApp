@@ -23,7 +23,7 @@
         android:paddingLeft="5dp"
         android:layout_weight="0.2"
         android:id="@+id/albumNameTextView"
-        android:textColor="@color/black"/>
+        android:textColor="@color/color_subTitle"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Album"
-            android:textColor="@color/black"
+            android:textColor="@color/color_text"
             android:textSize="7sp"/>
     </RelativeLayout>
 

@@ -14,4 +14,17 @@ public interface ApiClient {
     )
     @GET("albums/")
     Call<GetAlbumResponse>  getAlbums(@Query("ids") String ids);
+
+
+    @Headers(
+            "X-RapidAPI-Key: a3da52ec2emsh7f1b06e20ef4024p1acf60jsnb77c2ec7f1c7"
+    )
+    @GET("tracks/")
+    Call<GetTrackResponse> getTracks(@Query("ids") String ids);
+
+    @Headers(
+            "X-RapidAPI-Key: a3da52ec2emsh7f1b06e20ef4024p1acf60jsnb77c2ec7f1c7"
+    )
+    @GET("artists/")
+    Call<GetArtistResponse> getArtists(@Query("ids") String ids);
 }

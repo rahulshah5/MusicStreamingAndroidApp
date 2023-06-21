@@ -1,22 +1,21 @@
-package com.dgc.musicstreamingapp.api.helper;
+package com.dgc.musicstreamingapp.topChartAPI.helper;
 
-import java.io.IOException;
-
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class APIHelper {
+public class TopChartApiHelper {
 
     private static Retrofit retrofit=null;
-    private static String BASE_URL="https://spotify23.p.rapidapi.com/";
+    private static String BASE_URL="https://spotify117.p.rapidapi.com/";
 
-    public static Retrofit getInstance(){
+    public static Retrofit getInstanceForNewReleases(){
         if(retrofit ==null) {
+
+//            OkHttpClient client = new OkHttpClient.Builder()
+//                    .addInterceptor(new HeaderInterceptor())
+//                    .build();
 
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
@@ -32,6 +31,4 @@ public class APIHelper {
         }
         return retrofit;
     }
-
 }
-
