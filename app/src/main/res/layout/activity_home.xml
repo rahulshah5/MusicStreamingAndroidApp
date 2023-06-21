@@ -1,100 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
-<!--title-->
-    <TextView
+    android:layout_height="match_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Explore"
-        android:id="@+id/homeLabel"
-        android:paddingVertical="15dp"
-        android:paddingHorizontal="10dp"
-        android:textColor="@color/color_title"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        android:textSize="18sp"/>
-
-<!-- album items -->
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/homeLabel"
-        android:id="@+id/albums_gridList">
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools">
+    <!--title-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="Albums"
-            android:id="@+id/albumlabel"
+            android:text="Explore"
+            android:id="@+id/homeLabel"
+            android:paddingVertical="15dp"
             android:paddingHorizontal="10dp"
-            android:textColor="@color/color_subTitle"/>
+            android:textColor="@color/color_title"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textSize="18sp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/albumRecyclerView"
+    <!-- album items -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:overScrollMode="never"
-            android:padding="5dp"
-            android:scrollbars="horizontal"
-            tools:listitem="@layout/album_item_list" />
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/homeLabel"
+            android:id="@+id/albums_gridList">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Albums"
+                android:id="@+id/albumlabel"
+                android:paddingHorizontal="10dp"
+                android:textColor="@color/color_subTitle"/>
 
-    </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/albumRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:padding="5dp"
+                android:scrollbars="horizontal"
+                tools:listitem="@layout/album_item_list" />
 
-<!-- artist item -->
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/albums_gridList"
-        android:id="@+id/artist_gridList">
-        <TextView
+        </LinearLayout>
+
+    <!-- artist item -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="Artists"
-            android:id="@+id/artistLabel"
-            android:paddingHorizontal="10dp"
-            android:textColor="@color/color_subTitle"/>
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/albums_gridList"
+            android:id="@+id/artist_gridList">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Artists"
+                android:id="@+id/artistLabel"
+                android:paddingHorizontal="10dp"
+                android:textColor="@color/color_subTitle"/>
 
-        <androidx.recyclerview.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/artistRecyclerView"
+                android:padding="5dp"
+                android:scrollbars="horizontal"
+                android:overScrollMode="never"
+                tools:listitem="@layout/artist_item_list"/>
+
+        </LinearLayout>
+
+    <!-- track item -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/artistRecyclerView"
-            android:padding="5dp"
-            android:scrollbars="horizontal"
-            android:overScrollMode="never"
-            tools:listitem="@layout/artist_item_list"/>
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/artist_gridList"
+            android:id="@+id/track_gridList">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Tracks"
+                android:id="@+id/trackLabel"
+                android:paddingHorizontal="10dp"
+                android:textColor="@color/color_subTitle"/>
 
-    </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/trackRecyclerView"
+                android:padding="5dp"
+                tools:listitem="@layout/track_item_list"/>
 
-<!-- track item -->
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/artist_gridList"
-        android:id="@+id/track_gridList">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="Tracks"
-            android:id="@+id/trackLabel"
-            android:paddingHorizontal="10dp"
-            android:textColor="@color/color_subTitle"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/trackRecyclerView"
-            android:padding="5dp"
-            tools:listitem="@layout/track_item_list"/>
-
-    </LinearLayout>
-</RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
