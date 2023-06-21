@@ -21,20 +21,22 @@
         android:paddingHorizontal="10dp"
         android:layout_weight="0.8">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Track Name"
-                android:textSize="14sp"
-                android:textColor="@color/color_subTitle"
-                android:textStyle=""
-                android:id="@+id/trackNameTrackItemText"/>
+        <TextView
+            android:id="@+id/trackNameTrackItemText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="Track Name"
+            android:textColor="@color/color_subTitle"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Artist"
                 android:textColor="@color/color_text"
+                android:fontFamily="@font/montserrat"
                 android:textSize="12sp"
                 android:layout_below="@id/trackNameTrackItemText"
                 android:layout_marginTop="5dp"

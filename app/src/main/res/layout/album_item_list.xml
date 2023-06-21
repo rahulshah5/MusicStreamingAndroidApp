@@ -20,6 +20,8 @@
         android:layout_height="wrap_content"
         android:text="Album Name"
         android:textSize="10sp"
+        android:fontFamily="@font/montserrat"
+        android:textStyle="bold"
         android:paddingLeft="5dp"
         android:layout_weight="0.2"
         android:id="@+id/albumNameTextView"
@@ -29,18 +31,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.15"
-        android:paddingHorizontal="5dp"
-        >
+        android:paddingHorizontal="5dp" >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Album"
+            android:id="@+id/albumArtistName"
+            android:fontFamily="@font/montserrat"
             android:textColor="@color/color_text"
             android:textSize="7sp"/>
     </RelativeLayout>
-
-
-
 
 </LinearLayout>
