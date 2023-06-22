@@ -10,8 +10,21 @@ import com.dgc.musicstreamingapp.api.response.*;
 public interface ApiClient {
 
     @Headers(
-            "X-RapidAPI-Key: a3da52ec2emsh7f1b06e20ef4024p1acf60jsnb77c2ec7f1c7"
+            "X-RapidAPI-Key: 96bb1ac5admshf4421c13f164dcfp1fc537jsn361d80d3fca4"
     )
     @GET("albums/")
     Call<GetAlbumResponse>  getAlbums(@Query("ids") String ids);
+
+
+    @Headers(
+            "X-RapidAPI-Key: 96bb1ac5admshf4421c13f164dcfp1fc537jsn361d80d3fca4"
+    )
+    @GET("tracks/")
+    Call<GetTrackResponse> getTracks(@Query("ids") String ids);
+
+    @Headers(
+            "X-RapidAPI-Key: 96bb1ac5admshf4421c13f164dcfp1fc537jsn361d80d3fca4"
+    )
+    @GET("artists/")
+    Call<GetArtistResponse> getArtists(@Query("ids") String ids);
 }

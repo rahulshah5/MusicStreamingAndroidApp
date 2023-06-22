@@ -3,21 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search Here" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/searchView"
-        android:text="Search"
-        android:textAllCaps="false"
-        android:padding="10dp"
-       />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="search"
+        android:textSize="30sp"
+        android:fontFamily="@font/montserrat"
+        android:layout_centerInParent="true"
+        android:gravity="center"/>
 
 </RelativeLayout>

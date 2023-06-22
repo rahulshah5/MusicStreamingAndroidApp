@@ -7,17 +7,14 @@ import java.util.List;
 public class GetAlbumResponse {
 
     @SerializedName("albums")
-    private List<Album> albumList;
+    private List<AlbumResponseModel> albumList;
 
-    public GetAlbumResponse(List<Album> albumList) {
+    public GetAlbumResponse(List<AlbumResponseModel> albumList) {
         this.albumList = albumList;
     }
 
-    public List<Album> getAlbumsList() {
+    public List<AlbumResponseModel> getAlbumsList() {
         return albumList;
     }
 
-    public void setAlbumsList(List<Album> albumList) {
-        this.albumList = albumList;
-    }
 }
