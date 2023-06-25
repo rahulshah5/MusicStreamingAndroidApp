@@ -57,7 +57,7 @@ public class AlbumDetailsFragment extends Fragment {
         trackList=new ArrayList<>();
         trackList=albumList.getTrackList().getTracksModel();
         System.out.println(albumList.getAlbumName()+" inside album detail fragment");
-        albumDetailsAdapter=new AlbumDetailsAdapter(trackList,albumList);
+        albumDetailsAdapter=new AlbumDetailsAdapter(trackList,albumList,getContext());
         recyclerView.setAdapter(albumDetailsAdapter);
 
         return view;

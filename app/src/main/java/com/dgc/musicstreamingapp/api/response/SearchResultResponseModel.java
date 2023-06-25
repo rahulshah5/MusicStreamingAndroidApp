@@ -29,9 +29,6 @@ public class SearchResultResponseModel {
         @SerializedName("name")
         private String trackName;
 
-        @SerializedName("artists")
-        private ArtistItem artistItem;
-
         public String getTrackId() {
             return trackId;
         }
@@ -39,37 +36,7 @@ public class SearchResultResponseModel {
         public String getTrackName() {
             return trackName;
         }
-
-        public ArtistItem getArtistItem() {
-            return artistItem;
-        }
     }
 
-    public class ArtistItem {
-        @SerializedName("items")
-        private List<ArtistProfile> artistProfileList;
-
-        public List<ArtistProfile> getArtistProfileList() {
-            return artistProfileList;
-        }
-    }
-
-    public static class ArtistProfile{
-        @SerializedName("profile")
-        private ArtistProfileName artistProfileName;
-
-        public ArtistProfileName getArtistProfileName() {
-            return artistProfileName;
-        }
-    }
-
-    public class ArtistProfileName{
-        @SerializedName("name")
-        private String name;
-
-        public String getArtistName() {
-            return name;
-        }
-    }
 }
 

@@ -10,14 +10,14 @@
         android:title="Search"
         android:id="@+id/searchPage"
         />
-    <item
-        android:icon="@drawable/library"
-        android:title="Library"
-        android:id="@+id/libraryPage"
-        />
+<!--    <item-->
+<!--        android:icon="@drawable/library"-->
+<!--        android:title="Library"-->
+<!--        android:id="@+id/libraryPage"-->
+<!--        />-->
     <item
         android:icon="@drawable/play"
         android:title="Play"
-        android:id="@+id/profilePage"
+        android:id="@+id/playerPage"
         />
 </menu>

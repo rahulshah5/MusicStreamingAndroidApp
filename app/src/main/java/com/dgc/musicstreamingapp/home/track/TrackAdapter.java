@@ -1,10 +1,13 @@
 package com.dgc.musicstreamingapp.home.track;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.dgc.musicstreamingapp.MainActivity;
 import com.dgc.musicstreamingapp.R;
 import com.squareup.picasso.Picasso;
 
@@ -16,9 +19,13 @@ import java.util.ArrayList;
 public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TrackViewHolder> {
 
     private ArrayList<TrackModel> trackModelArrayList;
+    private Context mContext;
+    public static String trackUrl,trackName;
+    public static int trackDuration;
 
-    public TrackAdapter(ArrayList<TrackModel> trackModelArrayList) {
+    public TrackAdapter(ArrayList<TrackModel> trackModelArrayList,Context context) {
         this.trackModelArrayList = trackModelArrayList;
+        this.mContext=context;
     }
 
     @NonNull
@@ -38,6 +45,10 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TrackViewHol
         holder.trackName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                trackDuration=trackModel.getDuration();
+                trackUrl=trackModel.getTrackPreviewUrl();
+                trackName=trackModel.getTrackName();
+                if (mContext instanceof MainActivity){((MainActivity)mContext).onClickTrackItem();}
 
             }
         });
@@ -48,7 +59,6 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TrackViewHol
         return trackModelArrayList.size();
     }
     public class TrackViewHolder extends RecyclerView.ViewHolder{
-
         private TextView trackName,trackArtistName;
         private ImageView trackImageUrl;
         public TrackViewHolder(@NonNull View itemView) {

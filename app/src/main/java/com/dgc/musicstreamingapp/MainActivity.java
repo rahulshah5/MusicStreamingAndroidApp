@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 
+import com.dgc.musicstreamingapp.player.PlayerFragment;
 import com.dgc.musicstreamingapp.search.*;
 
 import androidx.annotation.Nullable;
@@ -13,20 +14,21 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.dgc.musicstreamingapp.home.artistdetails.*;
-import com.dgc.musicstreamingapp.library.*;
 import com.dgc.musicstreamingapp.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.dgc.musicstreamingapp.home.albumdetails.*;
+import com.dgc.musicstreamingapp.player.*;
+import com.dgc.musicstreamingapp.home.track.*;
 
 public class MainActivity extends AppCompatActivity {
     private HomeFragment homeFragment;
     private SearchFragment searchFragment;
-    private LibraryFragment libraryFragment;
+
     private AlbumDetailsFragment albumDetailsFragment;
     private BottomNavigationView bottomNavigationView;
     private ArtistPageFragment artistPageFragment;
-
+    private PlayerFragment playerFragment;
 
 
     @Override
@@ -35,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 //        fragment initiated
+        playerFragment=new PlayerFragment();
         searchFragment=new SearchFragment();
-        libraryFragment=new LibraryFragment();
 
 //      making home fragment default
         homeFragment = new HomeFragment();
@@ -60,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
                 } else if (item.getItemId()==R.id.ExplorePage) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
                     return true;
-                } else if (item.getItemId()==R.id.libraryPage) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container,libraryFragment).commit();
+                } else if (item.getItemId()==R.id.playerPage) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container,playerFragment).commit();
                     return true;
                 }
                 return false;
@@ -70,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickAlbumItem(){
-
+        PlayerFragment.trackUrl=AlbumDetailsAdapter.trackUrl;
+        PlayerFragment.trackDuration=AlbumDetailsAdapter.trackDuration;
+        PlayerFragment.trackName=AlbumDetailsAdapter.trackName;
         albumDetailsFragment=new AlbumDetailsFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.container,albumDetailsFragment).commit();
 
@@ -81,6 +85,20 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.container,artistPageFragment).commit();
     }
 
+    public void onClickTrackItem(){
+        PlayerFragment.trackUrl=TrackAdapter.trackUrl;
+        PlayerFragment.trackDuration=TrackAdapter.trackDuration;
+        PlayerFragment.trackName=TrackAdapter.trackName;
+        playerFragment=new PlayerFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,playerFragment).commit();
+    }
+
+    public void onClickAlbumTrackItem(){
+        playerFragment.trackUrl=AlbumDetailsAdapter.trackUrl;
+        playerFragment=new PlayerFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,playerFragment).commit();
+
+    }
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
