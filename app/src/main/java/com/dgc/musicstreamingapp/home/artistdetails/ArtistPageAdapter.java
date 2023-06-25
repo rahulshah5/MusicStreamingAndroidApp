@@ -51,7 +51,6 @@ public class ArtistPageAdapter extends RecyclerView.Adapter<ArtistPageAdapter.Ar
         holder.albumName.setText(albumModel.getAlbumName());
         holder.albumArtistName.setText(albumModel.getArtistNames());
 
-        for
     }
 
     @Override
