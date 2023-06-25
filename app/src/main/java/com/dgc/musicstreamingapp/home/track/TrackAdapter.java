@@ -34,6 +34,13 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TrackViewHol
         holder.trackName.setText(trackModel.getTrackName());
         holder.trackArtistName.setText(trackModel.getTrackArtistName());
         Picasso.get().load(trackModel.getTrackImageUrl()).into(holder.trackImageUrl);
+
+        holder.trackName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override

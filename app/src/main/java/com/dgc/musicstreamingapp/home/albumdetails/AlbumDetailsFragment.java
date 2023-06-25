@@ -42,10 +42,7 @@ public class AlbumDetailsFragment extends Fragment {
        recyclerView=view.findViewById(R.id.albumPageTrackRecyclerView);
        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
 
-        System.out.println("3");
         albumList=albumAdapter.albumList;
-
-
 
         albumTitle=view.findViewById(R.id.albumPageTitleTextView);
         albumCover=view.findViewById(R.id.albumPageCoverImageView);
@@ -57,7 +54,6 @@ public class AlbumDetailsFragment extends Fragment {
 
         Picasso.get().load(albumList.getImagesList().get(0).getImageUrl()).into(albumCover);
 
-
         trackList=new ArrayList<>();
         trackList=albumList.getTrackList().getTracksModel();
         System.out.println(albumList.getAlbumName()+" inside album detail fragment");
@@ -66,12 +62,4 @@ public class AlbumDetailsFragment extends Fragment {
 
         return view;
     }
-
-    private void wiringAlbum(View view){
-
-
-
-    }
-
-
 }

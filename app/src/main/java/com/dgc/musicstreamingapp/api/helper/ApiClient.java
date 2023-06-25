@@ -42,4 +42,7 @@ public interface ApiClient {
     @GET("artist_overview/")
     Call<AlbumIdOfArtistModel> getArtistOverview(@Query("id") String id);
 
+    @GET("search/")
+    Call<GetSearchResponse> getSearchResult(@Query("q") String id,@Query("type") String type);
+
 }
