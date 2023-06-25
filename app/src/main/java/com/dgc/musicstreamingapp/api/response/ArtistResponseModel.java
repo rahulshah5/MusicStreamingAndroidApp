@@ -8,35 +8,33 @@ public class ArtistResponseModel {
 
     @SerializedName("id")
     private String artistId;
-
     @SerializedName("name")
     private String artistName;
-
-
-
     @SerializedName("images")
     private List<ImagesResponseModel> artistImagesList;
 
+    @SerializedName("popularity")
+    private int popularityRank;
 
+    @SerializedName("genres")
+    private List<String> genres;
 
-    public List<ImagesResponseModel> getArtistImagesList() {
-        return artistImagesList;
+    public int getPopularityRank() {
+        return popularityRank;
+    }
+
+    public List<String> getGenres() {
+        return genres;
     }
 
     public String getArtistId() {
         return artistId;
     }
 
-    public void setArtistId(String artistId) {
-        this.artistId = artistId;
+    public List<ImagesResponseModel> getArtistImagesList() {
+        return artistImagesList;
     }
-
     public String getArtistName() {
         return artistName;
     }
-
-    public void setArtistName(String artistName) {
-        this.artistName = artistName;
-    }
-
 }

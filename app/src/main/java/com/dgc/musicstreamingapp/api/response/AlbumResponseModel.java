@@ -10,10 +10,22 @@ public class AlbumResponseModel {
     @SerializedName("id")
     private String albumId;
 
+    @SerializedName("label")
+    private String albumLabel;
+
+    @SerializedName("total_track")
+    private int totalTracks;
+
+    @SerializedName("popularity")
+    private int albumPopularity;
+
     @SerializedName("images")
     private List<ImagesResponseModel> imagesList;
     @SerializedName("artists")
     private List<ArtistResponseModel> artistsList;
+
+    @SerializedName("tracks")
+    private Items trackList;
 
 
     public String getAlbumName() {
@@ -32,7 +44,21 @@ public class AlbumResponseModel {
         return artistsList;
     }
 
+    public Items getTrackList() {
+        return trackList;
+    }
 
+    public String getAlbumLabel() {
+        return albumLabel;
+    }
+
+    public int getTotalTracks() {
+        return totalTracks;
+    }
+
+    public int getAlbumPopularity() {
+        return albumPopularity;
+    }
 }
 
 

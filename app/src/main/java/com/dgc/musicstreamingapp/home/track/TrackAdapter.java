@@ -1,6 +1,5 @@
 package com.dgc.musicstreamingapp.home.track;
 
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,8 +46,8 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TrackViewHol
         private ImageView trackImageUrl;
         public TrackViewHolder(@NonNull View itemView) {
             super(itemView);
-            trackName=itemView.findViewById(R.id.trackNameTrackItemText);
-            trackArtistName=itemView.findViewById(R.id.artistNameTrackItemText);
+            trackName=itemView.findViewById(R.id.trackItemListTrackName);
+            trackArtistName=itemView.findViewById(R.id.trackItemListArtistName);
             trackImageUrl=itemView.findViewById(R.id.trackImageTrackItemImage);
         }
     }
