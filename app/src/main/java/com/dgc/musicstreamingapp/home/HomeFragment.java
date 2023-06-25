@@ -38,7 +38,7 @@ import retrofit2.Retrofit;
 public class HomeFragment extends Fragment {
 
 
-    private RecyclerView albumRecyclerView, artistRecyclerView, trackRecyclerView, playlistRecyclerView;
+    private RecyclerView albumRecyclerView, artistRecyclerView, trackRecyclerView;
 
     //    album
     private AlbumAdapter albumAdapter;
@@ -75,7 +75,9 @@ public class HomeFragment extends Fragment {
     private List<String> idStringList;
     private List<String> imagesUrlStringList;
     private List<AlbumResponseModel> albumList;
-
+    public static String albumIdList ="1t1gWslYejaaqicumEbdKU,2jOri0TbmcmX1EtpK991Qd,3z9dtYRTqxHyYUkReOmfJ9,37nWpT1gls52Tu6pymuPw3";
+    public static String trackIdList="2o369pYSsztrzKYyVW9tqi,1418IuVKQPTYqt7QNJ9RXN,46gD3xI2JOg3K9YkrfW1JQ,606UwPF1MMoE220tv9ITut,4nriYsKSq1VmiamjZOB4Tp";
+    public static String artistIdList ="4YRxDV8wJFPHPTeXepOstw,1o3w6uL4JCuQX19stjhf3F,7L463cv1boHIHSwm8aWebX,1m98lRsSVX0l8vVaWkRwhD";
     public GetAlbumResponse getAlbumResponse;
 
     @SuppressLint("MissingInflatedId")
@@ -124,7 +126,7 @@ public class HomeFragment extends Fragment {
 //    }
 
     private void getArtistApi() {
-        Call<GetArtistResponse> artistResponseCall = apiClient.getArtists("2w9zwq3AktTeYYMuhMjju8,2w9zwq3AktTeYYMuhMjju8,2w9zwq3AktTeYYMuhMjju8,2w9zwq3AktTeYYMuhMjju8");
+        Call<GetArtistResponse> artistResponseCall = apiClient.getArtists(artistIdList);
         artistResponseCall.enqueue(new Callback<GetArtistResponse>() {
 
             @Override
@@ -171,7 +173,7 @@ public class HomeFragment extends Fragment {
         retrofit = APIHelper.getInstance();
         apiClient = retrofit.create(ApiClient.class);
 
-        Call<GetAlbumResponse> albumResponseCall = apiClient.getAlbums("3IBcauSj5M2A6lTeffJzdv,3IBcauSj5M2A6lTeffJzdv,3IBcauSj5M2A6lTeffJzdv,3IBcauSj5M2A6lTeffJzdv");
+        Call<GetAlbumResponse> albumResponseCall = apiClient.getAlbums(albumIdList);
         albumResponseCall.enqueue(new Callback<GetAlbumResponse>() {
             @Override
             public void onResponse(Call<GetAlbumResponse> call, Response<GetAlbumResponse> response) {
@@ -213,12 +215,12 @@ public class HomeFragment extends Fragment {
 
     //    Track functions
     private void createTrack() {
-        trackAdapter = new TrackAdapter(trackModelArrayList);
+        trackAdapter = new TrackAdapter(trackModelArrayList, getContext());
         trackRecyclerView.setAdapter(trackAdapter);
     }
 
     private void getTracksApi() {
-        Call<GetTrackResponse> trackResponseCall = apiClient.getTracks("4WNcduiCmDNfmTEz7JvmLv,4WNcduiCmDNfmTEz7JvmLv,4WNcduiCmDNfmTEz7JvmLv,4WNcduiCmDNfmTEz7JvmLv");
+        Call<GetTrackResponse> trackResponseCall = apiClient.getTracks(trackIdList);
         trackResponseCall.enqueue(new Callback<GetTrackResponse>() {
             @Override
             public void onResponse(Call<GetTrackResponse> call, Response<GetTrackResponse> response) {
@@ -229,7 +231,7 @@ public class HomeFragment extends Fragment {
                     trackModelArrayList = new ArrayList<>();
 
                     for (TrackResponseModel t : trackList) {
-                        trackModel = new TrackModel(t.getTrackName(), "artist", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8PbF8U_pNnvZXSR9X-04GlUlT2MdQ29YfOA&usqp=CAU");
+                        trackModel = new TrackModel(t.getTrackName(), "artist", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8PbF8U_pNnvZXSR9X-04GlUlT2MdQ29YfOA&usqp=CAU",t.getTrackUrl(),t.getDuration());
                         trackModelArrayList.add(trackModel);
                     }
                     createTrack();
