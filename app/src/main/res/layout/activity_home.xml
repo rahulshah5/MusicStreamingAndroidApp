@@ -51,6 +51,7 @@
 
         </LinearLayout>
 
+
     <!-- artist item -->
         <LinearLayout
             android:orientation="vertical"
@@ -80,6 +81,7 @@
 
         </LinearLayout>
 
+
     <!-- track item -->
         <LinearLayout
             android:orientation="vertical"
@@ -107,5 +109,8 @@
                 tools:listitem="@layout/track_item_list"/>
 
         </LinearLayout>
+
+
+
     </RelativeLayout>
 </ScrollView>

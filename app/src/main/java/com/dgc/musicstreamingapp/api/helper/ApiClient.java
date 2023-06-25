@@ -6,25 +6,40 @@ import retrofit2.http.Headers;
 import retrofit2.http.Query;
 
 import com.dgc.musicstreamingapp.api.response.*;
+import com.dgc.musicstreamingapp.api.response.ArtistDetails.AlbumIdOfArtistModel;
 
 public interface ApiClient {
 
     @Headers(
-            "X-RapidAPI-Key: 96bb1ac5admshf4421c13f164dcfp1fc537jsn361d80d3fca4"
+            "X-RapidAPI-Key: 0ecbca7bacmshba5f7cd7ad1a00ep1465a3jsnf6667a29d1a5"
     )
     @GET("albums/")
     Call<GetAlbumResponse>  getAlbums(@Query("ids") String ids);
 
 
     @Headers(
-            "X-RapidAPI-Key: 96bb1ac5admshf4421c13f164dcfp1fc537jsn361d80d3fca4"
+            "X-RapidAPI-Key: 0ecbca7bacmshba5f7cd7ad1a00ep1465a3jsnf6667a29d1a5"
     )
     @GET("tracks/")
     Call<GetTrackResponse> getTracks(@Query("ids") String ids);
 
     @Headers(
-            "X-RapidAPI-Key: 96bb1ac5admshf4421c13f164dcfp1fc537jsn361d80d3fca4"
+            "X-RapidAPI-Key: 0ecbca7bacmshba5f7cd7ad1a00ep1465a3jsnf6667a29d1a5"
     )
     @GET("artists/")
     Call<GetArtistResponse> getArtists(@Query("ids") String ids);
+
+
+    @Headers(
+            "X-RapidAPI-Key: 0ecbca7bacmshba5f7cd7ad1a00ep1465a3jsnf6667a29d1a5"
+    )
+    @GET("playlist/")
+    Call<GetPlaylistResponse> getPlaylist(@Query("id") String id);
+
+    @Headers(
+            "X-RapidAPI-Key: 0ecbca7bacmshba5f7cd7ad1a00ep1465a3jsnf6667a29d1a5"
+    )
+    @GET("artist_overview/")
+    Call<AlbumIdOfArtistModel> getArtistOverview(@Query("id") String id);
+
 }
