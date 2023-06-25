@@ -42,6 +42,4 @@ public interface ApiClient {
     @GET("artist_overview/")
     Call<AlbumIdOfArtistModel> getArtistOverview(@Query("id") String id);
 
-
-
 }
