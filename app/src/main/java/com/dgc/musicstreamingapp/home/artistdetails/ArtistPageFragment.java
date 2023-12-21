@@ -89,7 +89,6 @@ public class ArtistPageFragment extends Fragment {
             public void onResponse(Call<AlbumIdOfArtistModel> call, Response<AlbumIdOfArtistModel> response) {
                 if (response.isSuccessful()){
                     itemsList=new ArrayList<>();
-
                     AlbumIdOfArtistModel albumIdList=response.body();
                     itemsList =albumIdList.getDataList().getArtistDetailsList().getRelatedContentModelsList().getAppearsOn().getItems();
                     System.out.println("itemlist "+itemsList);
@@ -99,7 +98,7 @@ public class ArtistPageFragment extends Fragment {
                             System.out.println(al.getAlbumName());
                         }
                     }
-//                    getAlbumsWithId();
+                    getAlbums();
                 }
             }
 
@@ -108,20 +107,20 @@ public class ArtistPageFragment extends Fragment {
 
             }
         });
-//    }
-//
-//    void getAlbumsWithId(){
+    }
+
+    void getAlbums(){
         albumIdCombined="";
-        int count=0;
-        for (String s:albumsIds){
-            count+=1;
-            if(count!=albumsIds.size()){
-                albumIdCombined=s+",";
-            }else {
-                albumIdCombined+=s;
+        StringBuilder stringBuilder = new StringBuilder();
+
+        System.out.println("id list "+albumsIds.size());
+        for (int i = 0; i < albumsIds.size(); i++) {
+            stringBuilder.append(albumsIds.get(i));
+            if (i != albumsIds.size() - 1) {
+                stringBuilder.append(", ");
             }
-            System.out.println("album ids "+albumIdCombined);
         }
+        albumIdCombined=stringBuilder.toString();
 
         Call<GetAlbumResponse> albumResponseCall = apiClient.getAlbums(albumIdCombined);
         albumResponseCall.enqueue(new Callback<GetAlbumResponse>() {
@@ -150,6 +149,5 @@ public class ArtistPageFragment extends Fragment {
             }
 
         });
-
     }
 }

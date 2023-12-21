@@ -1,71 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="25dp"
-        xmlns:tools="http://schemas.android.com/tools">
+        android:layout_marginTop="25dp">
 
 
         <ImageView
             android:id="@+id/voiceIcon"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/music_icon"
-            android:layout_centerHorizontal="true"/>
+            android:src="@drawable/music_icon" />
 
         <SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/voiceIcon"
             android:iconifiedByDefault="false"
-            android:queryHint="Search Here"
-            android:layout_below="@id/voiceIcon"/>
+            android:queryHint="Search Here" />
 
         <Button
+            android:id="@+id/search_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/searchView"
-            android:id="@+id/search_button"
-            android:text="Search"
-            android:textAllCaps="false"
-            android:layout_marginTop="5dp"
-            android:padding="10dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
             android:backgroundTint="@color/button_color"
-            />
-
+            android:padding="10dp"
+            android:text="Search"
+            android:textColor="@color/white"
+            android:textAllCaps="false" />
 
 
         <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/track_gridList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_below="@id/search_button"
-            android:id="@+id/track_gridList">
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/searchPageTrackLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Tracks"
                 android:fontFamily="@font/montserrat_semibold"
-                android:id="@+id/searchPageTrackLabel"
                 android:paddingHorizontal="10dp"
-                android:textColor="@color/black"/>
+                android:text="Tracks"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/searchPageTrackRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/searchPageTrackRecyclerView"
                 android:padding="5dp"
-                tools:listitem="@layout/track_item_list"/>
+                tools:listitem="@layout/track_item_list" />
 
         </LinearLayout>
     </RelativeLayout>

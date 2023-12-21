@@ -1,11 +1,12 @@
 package com.dgc.musicstreamingapp.home.Search;
 
-import android.app.appsearch.SearchResult;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,8 +17,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.dgc.musicstreamingapp.R;
 import com.dgc.musicstreamingapp.api.helper.APIHelper;
 import com.dgc.musicstreamingapp.api.helper.ApiClient;
-import com.dgc.musicstreamingapp.home.track.*;
-import com.dgc.musicstreamingapp.api.response.*;
+import com.dgc.musicstreamingapp.api.response.GetSearchResponse;
+import com.dgc.musicstreamingapp.api.response.GetTrackResponse;
+import com.dgc.musicstreamingapp.api.response.SearchResultResponseModel;
+import com.dgc.musicstreamingapp.api.response.TrackResponseModel;
+import com.dgc.musicstreamingapp.home.track.TrackAdapter;
+import com.dgc.musicstreamingapp.home.track.TrackModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,40 +43,69 @@ public class SearchFragment extends Fragment {
     private String combinedIdString;
     private TrackAdapter trackAdapter;
     private List<TrackResponseModel> trackList;
-
+    private SearchView searchView;
+    private Button searchButton;
+    private String searchQuery;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.activity_search,container,false);
+        View view = inflater.inflate(R.layout.activity_search, container, false);
 
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-        getSearchResult();
 
 
         return view;
     }
 
-    void getSearchResult(){
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        recyclerView = view.findViewById(R.id.searchPageTrackRecyclerView);
 
-        Call<GetSearchResponse> getSearchResponseCall=apiClient.getSearchResult("maan meri jaan","tracks");
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false);
+
+        recyclerView.setLayoutManager(layoutManager);
+        retrofit = APIHelper.getInstance();
+        apiClient = retrofit.create(ApiClient.class);
+
+        searchView=view.findViewById(R.id.searchView);
+        searchButton=view.findViewById(R.id.search_button);
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchQuery=searchView.getQuery().toString();
+                getSearchResult();
+            }
+        });
+
+    }
+
+    void getSearchResult() {
+
+        Call<GetSearchResponse> getSearchResponseCall = apiClient.getSearchResult(searchQuery, "tracks", "0","20","5");
         getSearchResponseCall.enqueue(new Callback<GetSearchResponse>() {
             @Override
-            public void onResponse(Call<GetSearchResponse> call,Response<GetSearchResponse> response) {
-                if(response.isSuccessful()){
+            public void onResponse(Call<GetSearchResponse> call, Response<GetSearchResponse> response) {
+                if (response.isSuccessful()) {
                     System.out.println("searched");
-                    GetSearchResponse getSearchResponse=response.body();
+                    GetSearchResponse getSearchResponse = response.body();
 
-                    trackModelList=new ArrayList<>();
-                    List<SearchResultResponseModel.ArtistData> artistData= getSearchResponse.getSearchResultResponseModel().getArtistData();
+                    trackModelList = new ArrayList<>();
+                    idList = new ArrayList<>();
+                    SearchResultResponseModel artistData = getSearchResponse.getSearchResultResponseModel();
 
-                    for(SearchResultResponseModel.ArtistData ad:artistData){
-                        idList.add(ad.getArtistIdName().getTrackId());
+//                    for (SearchResultResponseModel.ArtistData ad : artistData) {
+//                        idList.add(ad.getArtistIdName().getTrackId());
+//
+//                    }
 
+                    for(int i=0;i<20;i++){
+                        idList.add(artistData.getArtistData().get(i).getArtistIdName().getTrackId());
                     }
                     StringBuilder stringBuilder = new StringBuilder();
 
+                    System.out.println("id list "+idList.size());
                     for (int i = 0; i < idList.size(); i++) {
                         stringBuilder.append(idList.get(i));
 
@@ -83,7 +117,7 @@ public class SearchFragment extends Fragment {
                     System.out.println(combinedIdString);
 
 
-                }else {
+                } else {
                     Log.e("response error", "response code" + response.code());
                 }
                 getTracksOfResult();
@@ -97,7 +131,7 @@ public class SearchFragment extends Fragment {
 
     }
 
-    void getTracksOfResult(){
+    void getTracksOfResult() {
         Call<GetTrackResponse> trackResponseCall = apiClient.getTracks(combinedIdString);
         trackResponseCall.enqueue(new Callback<GetTrackResponse>() {
             @Override
@@ -109,13 +143,16 @@ public class SearchFragment extends Fragment {
                     trackModelList = new ArrayList<>();
 
                     for (TrackResponseModel t : trackList) {
-                        trackModel = new TrackModel(t.getTrackName(), "artist", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8PbF8U_pNnvZXSR9X-04GlUlT2MdQ29YfOA&usqp=CAU",t.getTrackUrl(),t.getDuration());
-                        trackModelList.add(trackModel);
+                        if(t!=null) {
+                            trackModel = new TrackModel(t.getTrackName(), "artist", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8PbF8U_pNnvZXSR9X-04GlUlT2MdQ29YfOA&usqp=CAU", t.getTrackUrl(), t.getDuration());
+                            trackModelList.add(trackModel);
+                        }
                     }
                 } else {
                     Log.e("response error", "response code" + response.code());
                 }
-                trackAdapter=new TrackAdapter(trackModelList,getContext());
+                System.out.println("track size "+trackModelList.size());
+                trackAdapter = new TrackAdapter(trackModelList, getContext());
                 recyclerView.setAdapter(trackAdapter);
             }
 

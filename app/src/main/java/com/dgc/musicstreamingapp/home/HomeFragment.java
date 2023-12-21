@@ -99,6 +99,10 @@ public class HomeFragment extends Fragment {
         trackRecyclerView = view.findViewById(R.id.trackRecyclerView);
         trackRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
+
+        retrofit = APIHelper.getInstance();
+        apiClient = retrofit.create(ApiClient.class);
+
         getAlbumsApi();
         getArtistApi();
         getTracksApi();
@@ -170,8 +174,6 @@ public class HomeFragment extends Fragment {
 
     public  void getAlbumsApi() {
 
-        retrofit = APIHelper.getInstance();
-        apiClient = retrofit.create(ApiClient.class);
 
         Call<GetAlbumResponse> albumResponseCall = apiClient.getAlbums(albumIdList);
         albumResponseCall.enqueue(new Callback<GetAlbumResponse>() {

@@ -22,7 +22,7 @@ public class SearchResultResponseModel {
         }
     }
 
-    public class ArtistIdName{
+    public static class ArtistIdName{
         @SerializedName("id")
         private String trackId;
 

@@ -5,7 +5,7 @@ import android.view.MenuItem;
 
 
 import com.dgc.musicstreamingapp.player.PlayerFragment;
-import com.dgc.musicstreamingapp.search.*;
+import com.dgc.musicstreamingapp.home.Search.*;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
