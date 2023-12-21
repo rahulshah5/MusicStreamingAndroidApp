@@ -15,7 +15,12 @@ public class TrackResponseModel {
     @SerializedName("preview_url")
     private String trackUrl;
 
+    @SerializedName("duration_ms")
+    private int duration;
 
+    public int getDuration() {
+        return duration;
+    }
 
     public String getTrackUrl() {
         return trackUrl;
